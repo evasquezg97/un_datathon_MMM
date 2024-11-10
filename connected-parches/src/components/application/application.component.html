@@ -1,2 +1,13 @@
-<p>application works!</p>
-<img src="assets/perro_rexixtente.webp" alt="Storymap Image" />
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter item</mat-label>
+    <input matInput [(ngModel)]="inputValue" (keyup.enter)="addItem()" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="addItem()">Submit</button>
+</div>
+
+<ul>
+    @for (item of items; track item) {
+        <mat-list-item>{{ item }}</mat-list-item>
+    }
+</ul>
