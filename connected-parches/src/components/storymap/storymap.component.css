@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    width: 100%; /* Full width */
+    height: 100vh; /* Full viewport height */
+    flex-direction: row;
+    background-color: #121212;
+  }
+  
+  .text-section {
+    padding: 40px;
+    width: 50%; /* 50% width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .text-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .text-section .subtitle {
+    font-size: 1.2rem;
+    color: #aaaaaa;
+    margin-bottom: 40px;
+  }
+  
+  .text-section .author, .text-section .date {
+    font-size: 1rem;
+    color: #aaaaaa;
+  }
+  
+  .image-section {
+    width: 50%; /* 50% width */
+    height: 100vh;
+    overflow: hidden; /* Hide overflow */
+  }
+  
+  .image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container */
+    object-position: center; /* Center the image */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .text-section, .image-section {
+      width: 100%;
+      padding: 20px;
+      height: auto;
+    }
+  
+    .text-section h1 {
+      font-size: 2.5rem;
+    }
+  
+    .text-section .subtitle {
+      font-size: 1.1rem;
+    }
+  
+    .text-section .author, .text-section .date {
+      font-size: 0.9rem;
+    }
+  
+    .image-section img {
+      height: auto; /* Allow image to adjust height */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .text-section h1 {
+      font-size: 2rem;
+    }
+  
+    .text-section .subtitle {
+      font-size: 1rem;
+    }
+  
+    .text-section .author, .text-section .date {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    body {
+      padding: 20px;
+    }
+  
+    .text-section {
+      padding: 15px;
+    }
+  
+    .text-section h1 {
+      font-size: 1.8rem;
+    }
+  
+    .text-section .subtitle {
+      font-size: 0.9rem;
+    }
+  
+    .text-section .author, .text-section .date {
+      font-size: 0.7rem;
+    }
+  }
+  
