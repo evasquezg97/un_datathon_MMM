@@ -1,13 +1,10 @@
-<div>
-  <mat-form-field appearance="fill">
-    <mat-label>Enter item</mat-label>
-    <input matInput [(ngModel)]="inputValue" (keyup.enter)="addItem()" />
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="addItem()">Submit</button>
+<div class="overlay-container">
+  <app-arrow-button></app-arrow-button>
+  <app-search-bar (search)="onSearch($event)"></app-search-bar>
+  <ul *ngIf="items.length > 0" class="item-list">
+    <mat-list-item *ngFor="let item of items">{{ item }}</mat-list-item>
+  </ul>
 </div>
-
-<ul>
-    @for (item of items; track item) {
-        <mat-list-item>{{ item }}</mat-list-item>
-    }
-</ul>
+<div class="map-container">
+  <app-map></app-map>
+</div>

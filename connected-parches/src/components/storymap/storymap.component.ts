@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { ArrowButtonComponent } from '../arrow-button/arrow-button.component';
 
 @Component({
   selector: 'app-storymap',
   standalone: true,
-  imports: [],
+  imports: [ArrowButtonComponent],
   templateUrl: './storymap.component.html',
-  styleUrl: './storymap.component.css'
+  styleUrls: ['./storymap.component.css']
 })
-export class StorymapComponent {
-
-}
+export class StorymapComponent {}
