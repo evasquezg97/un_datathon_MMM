@@ -129,4 +129,214 @@
       font-size: 0.7rem;
     }
   }
+  /* storymap.component.css */
+
+/* Existing Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    width: 100%; /* Full width */
+    height: 100vh; /* Full viewport height */
+    flex-direction: row;
+    background-color: #121212;
+  }
+  
+  .text-section {
+    padding: 40px;
+    width: 50%; /* 50% width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .text-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .text-section .subtitle {
+    font-size: 1.2rem;
+    color: #aaaaaa;
+    margin-bottom: 40px;
+  }
+  
+  .text-section .author, .text-section .date {
+    font-size: 1rem;
+    color: #aaaaaa;
+  }
+  
+  .image-section {
+    width: 50%; /* 50% width */
+    height: 100vh;
+    overflow: hidden; /* Hide overflow */
+  }
+  
+  .image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container */
+    object-position: center; /* Center the image */
+  }
+  
+  /* New Tab Section Styles */
+  .tab-section {
+    width: 100%;
+    padding: 40px;
+    background-color: #1e1e1e; /* Optional: Different background to distinguish sections */
+  }
+  
+  .tab-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto; /* Adjust height based on content */
+    background-color: #121212;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .tab-content .text-section {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .tab-content .image-section {
+    width: 50%;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .tab-content .image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Responsive Design */
+  
+  /* Adjust layout for screens <= 992px */
+  @media (max-width: 992px) {
+    body {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .text-section, .image-section, .tab-content .text-section, .tab-content .image-section {
+      width: 100%;
+      padding: 20px;
+    }
+  
+    .text-section h1 {
+      font-size: 2.5rem;
+    }
+  
+    .text-section .subtitle {
+      font-size: 1.1rem;
+    }
+  
+    .text-section .author, .text-section .date {
+      font-size: 0.9rem;
+    }
+  
+    .image-section img, .tab-content .image-section img {
+      height: auto; /* Allow images to adjust height */
+    }
+  }
+  
+  /* Adjust layout for screens <= 768px */
+  @media (max-width: 768px) {
+    .text-section h1 {
+      font-size: 2rem;
+    }
+  
+    .text-section .subtitle {
+      font-size: 1rem;
+    }
+  
+    .text-section .author, .text-section .date {
+      font-size: 0.8rem;
+    }
+  
+    .tab-content .text-section h2 {
+      font-size: 2rem;
+    }
+  
+    .tab-content .subtitle {
+      font-size: 1rem;
+    }
+  
+    .tab-content .author {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Adjust layout for screens <= 576px */
+  @media (max-width: 576px) {
+    body {
+      padding: 20px;
+    }
+  
+    .text-section {
+      padding: 15px;
+    }
+  
+    .text-section h1 {
+      font-size: 1.8rem;
+    }
+  
+    .text-section .subtitle {
+      font-size: 0.9rem;
+    }
+  
+    .text-section .author, .text-section .date {
+      font-size: 0.7rem;
+    }
+  
+    .tab-section {
+      padding: 20px;
+    }
+  
+    .tab-content .text-section {
+      padding: 15px;
+    }
+  
+    .tab-content .text-section h2 {
+      font-size: 1.8rem;
+    }
+  
+    .tab-content .subtitle {
+      font-size: 0.9rem;
+    }
+  
+    .tab-content .author {
+      font-size: 0.8rem;
+    }
+  }
   
