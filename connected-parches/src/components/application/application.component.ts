@@ -13,9 +13,11 @@ import { ArrowButtonComponent } from '../arrow-button/arrow-button.component';
   styleUrls: ['./application.component.css']
 })
 export class ApplicationComponent {
-  items: string[] = [];
+  items: { name: string, lat: number, lng: number, image: string }[] = [];
+  coordinates: { name: string, lat: number, lng: number, image: string }[] = [];
 
-  onSearch(item: string) {
-    this.items.push(item);
+  onSearch(places: { name: string, lat: number, lng: number, image: string }[]) {
+    this.items.push(...places);
+    this.coordinates = [...this.coordinates, ...places];
   }
 }

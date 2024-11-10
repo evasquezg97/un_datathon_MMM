@@ -2,9 +2,15 @@
   <app-arrow-button></app-arrow-button>
   <app-search-bar (search)="onSearch($event)"></app-search-bar>
   <ul *ngIf="items.length > 0" class="item-list">
-    <mat-list-item *ngFor="let item of items">{{ item }}</mat-list-item>
+    <mat-list-item *ngFor="let item of items" class="list-item">
+      <img [src]="item.image" alt="{{ item.name }}" width="50" height="50">
+      <div class="item-content">
+        <h3>{{ item.name }}</h3>
+        <p>Lat: {{ item.lat }}, Lng: {{ item.lng }}</p>
+      </div>
+    </mat-list-item>
   </ul>
 </div>
 <div class="map-container">
-  <app-map></app-map>
+  <app-map [coordinates]="coordinates"></app-map>
 </div>

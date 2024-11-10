@@ -15,12 +15,27 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 })
 export class SearchBarComponent {
   inputValue: string = '';
-  @Output() search = new EventEmitter<string>();
+  @Output() search = new EventEmitter<{ name: string, lat: number, lng: number, image: string }[]>();
 
   onSearch() {
-    if (this.inputValue.trim()) {
-      this.search.emit(this.inputValue);
-      this.inputValue = '';
+    const randomPlaces = this.getRandomPlaces();
+    this.search.emit(randomPlaces);
+    this.inputValue = '';
+  }
+
+  private getRandomPlaces() {
+    const baseLat = 6.2476;
+    const baseLng = -75.5658;
+    const places = [];
+    for (let i = 0; i < 5; i++) {
+      const latOffset = (Math.random() - 0.5) * 0.02; // Random offset between -0.01 and 0.01
+      const lngOffset = (Math.random() - 0.5) * 0.02; // Random offset between -0.01 and 0.01
+      const lat = baseLat + latOffset;
+      const lng = baseLng + lngOffset;
+      const name = `Place ${Math.floor(Math.random() * 1000)}`; // Random place name
+      const image = 'https://via.placeholder.com/150'; // Placeholder image URL
+      places.push({ name, lat, lng, image });
     }
+    return places;
   }
 }
