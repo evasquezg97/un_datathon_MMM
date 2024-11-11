@@ -67,12 +67,12 @@ export class ApplicationComponent {
   private getRandomSubItems(item: Place): Place[] {
     const subItems: Place[] = [];
     for (let i = 0; i < 3; i++) {
-      const latOffset = (Math.random() - 0.5) * 0.01; // Random offset between -0.005 and 0.005
-      const lngOffset = (Math.random() - 0.5) * 0.01; // Random offset between -0.005 and 0.005
+      const latOffset = (Math.random() - 0.5) * 0.01;
+      const lngOffset = (Math.random() - 0.5) * 0.01;
       const lat = item.lat + latOffset;
       const lng = item.lng + lngOffset;
-      const name = `SubPlace ${Math.floor(Math.random() * 1000)}`; // Random subplace name
-      const image = 'https://via.placeholder.com/150'; // Placeholder image URL
+      const name = `SubPlace ${Math.floor(Math.random() * 1000)}`;
+      const image = 'https://picsum.photos/200';
       subItems.push({ name, lat, lng, image });
     }
     return subItems;

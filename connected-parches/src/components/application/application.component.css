@@ -74,3 +74,9 @@
   border-bottom: none;
   margin-bottom: 0; /* Remove spacing for the last item */
 }
+
+/* Make images circular */
+.list-item img,
+.sublist-item img {
+  border-radius: 50%;
+}
