@@ -172,12 +172,21 @@
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 20px;
+    color: #aaaaaa; 
+  }
+  
+  .text-section h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #8a8989;
+    margin-bottom: 20px;
+
   }
   
   .text-section .subtitle {
     font-size: 1.2rem;
     color: #aaaaaa;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
   
   .text-section .author, .text-section .date {
@@ -284,10 +293,14 @@
       font-size: 0.8rem;
     }
   
-    .tab-content .text-section h2 {
-      font-size: 2rem;
+    .tab-content .text-section .h2 {
+      font-size: 3rem;
+      color: #aaaaaa;
     }
-  
+    .tab-content .text-section .title {
+        font-size: 5rem;
+        color: #aaaaaa;
+      }
     .tab-content .subtitle {
       font-size: 1rem;
     }
@@ -327,9 +340,6 @@
       padding: 15px;
     }
   
-    .tab-content .text-section h2 {
-      font-size: 1.8rem;
-    }
   
     .tab-content .subtitle {
       font-size: 0.9rem;
