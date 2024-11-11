@@ -134,7 +134,10 @@ We welcome contributions to make *Connected-Parches* more impactful. Please refe
 ## Authors
 
 - [Luis Miguel Montoya](https://github.com/LuisM31)
-- []
+- [Juan José Rojas Velilla](https://github.com/Pansamaster)
+- [Estevan Vasquez](https://github.com/evasquezg97)
+- [Alejandro Sarasti](https://github.com/sarasti2)
+- [Jose M Munoz](https://github.com/munozariasjm)
 
 ## License
 
