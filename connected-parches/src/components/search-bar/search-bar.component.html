@@ -1,9 +1,12 @@
-<div class="search-container">
-  <mat-form-field appearance="outline" class="search-bar">
-    <mat-label>Search locations</mat-label>
-    <input matInput [(ngModel)]="inputValue" (keyup.enter)="onSearch()" placeholder="Enter item" style="color: black;" />
-  </mat-form-field>
-  <button mat-icon-button color="primary" class="search-button" (click)="onSearch()">
-    <mat-icon>search</mat-icon>
-  </button>
-</div>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Select a Prompt
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let prompt of prompts">
+      <button mat-button (click)="onSelect(prompt)" [class.selected]="selectedPrompt === prompt">{{ prompt.prompt }}</button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

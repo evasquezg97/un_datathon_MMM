@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import * as L from 'leaflet';
 
 interface Place {
@@ -41,6 +41,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private polylines: L.Polyline[] = [];
   @Input() coordinates: Place[] = [];
   @Input() subCoordinates: Place[] = [];
+  @Output() markerClick = new EventEmitter<Place>();
 
   ngAfterViewInit(): void {
     this.initMap();
@@ -49,7 +50,9 @@ export class MapComponent implements AfterViewInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['coordinates'] && this.map) {
       console.log('Coordinates changed:', this.coordinates);
+      this.clearMarkersAndLines();
       this.addMarkers();
+      this.centerMapOnCoordinates();
     }
     if (changes['subCoordinates'] && this.map) {
       console.log('SubCoordinates changed:', this.subCoordinates);
@@ -85,6 +88,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     this.coordinates.forEach(coord => {
       const marker = L.marker([coord.lat, coord.lng], { icon: customIcon }).addTo(this.map!);
       marker.bindPopup(`<b>${coord.name}</b><br><img src="${coord.image}" alt="${coord.name}" width="50" height="50">`);
+      marker.on('click', () => this.markerClick.emit(coord));
       this.markers.push(marker);
     });
   }
@@ -113,6 +117,21 @@ export class MapComponent implements AfterViewInit, OnChanges {
         this.polylines.push(polyline);
       }
     });
+  }
+
+  private centerMapOnCoordinates(): void {
+    if (this.coordinates.length > 0) {
+      const firstCoord = this.coordinates[0];
+      this.map!.setView([firstCoord.lat, firstCoord.lng], 13);
+    }
+  }
+
+  private clearMarkersAndLines(): void {
+    this.markers.forEach(marker => {
+      this.map!.removeLayer(marker);
+    });
+    this.markers = [];
+    this.clearSubMarkersAndLines();
   }
 
   private clearSubMarkersAndLines(): void {

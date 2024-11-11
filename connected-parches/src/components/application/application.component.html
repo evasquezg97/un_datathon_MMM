@@ -23,5 +23,5 @@
   </ul>
 </div>
 <div class="map-container">
-  <app-map [coordinates]="coordinates" [subCoordinates]="subCoordinates"></app-map>
+  <app-map [coordinates]="coordinates" [subCoordinates]="subCoordinates" (markerClick)="onMarkerClick($event)"></app-map>
 </div>

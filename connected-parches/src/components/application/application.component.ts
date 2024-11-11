@@ -27,8 +27,9 @@ export class ApplicationComponent {
   openItem: Place | null = null;
 
   onSearch(places: Place[]) {
-    this.items.push(...places);
-    this.coordinates = [...this.coordinates, ...places];
+    this.items = places;
+    this.coordinates = places;
+    this.subCoordinates = []; // Clear subCoordinates when a new prompt is selected
   }
 
   onItemClick(item: Place) {
@@ -48,6 +49,10 @@ export class ApplicationComponent {
         this.subCoordinates = [...this.subCoordinates, ...item.subItems];
       }
     }
+  }
+
+  onMarkerClick(item: Place) {
+    this.onItemClick(item);
   }
 
   private closeItem(item: Place) {

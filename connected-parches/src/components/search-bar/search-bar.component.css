@@ -10,6 +10,11 @@
   width: 500px; /* Increase width for a longer search bar */
 }
 
+/* Add any necessary styles for the accordion component */
+button.selected {
+  background-color: #d3d3d3; /* Highlight color */
+}
+
 /* Center the input text within the field */
 .search-bar {
   flex: 1;
