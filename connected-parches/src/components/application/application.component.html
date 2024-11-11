@@ -1,10 +1,27 @@
 <div class="overlay-container">
   <app-arrow-button></app-arrow-button>
-  <app-search-bar (search)="onSearch($event)"></app-search-bar>
+  <div class="search-bar-container">
+    <app-search-bar (search)="onSearch($event)"></app-search-bar>
+  </div>
   <ul *ngIf="items.length > 0" class="item-list">
-    <mat-list-item *ngFor="let item of items">{{ item }}</mat-list-item>
+    <mat-list-item *ngFor="let item of items" class="list-item" (click)="onItemClick(item)">
+      <img [src]="item.image" alt="{{ item.name }}" width="50" height="50">
+      <div class="item-content">
+        <h3>{{ item.name }}</h3>
+        <p>Lat: {{ item.lat }}, Lng: {{ item.lng }}</p>
+      </div>
+      <ul *ngIf="item.subItems" class="sublist">
+        <li *ngFor="let subItem of item.subItems" class="sublist-item">
+          <img [src]="subItem.image" alt="{{ subItem.name }}" width="30" height="30">
+          <div class="item-content">
+            <h4>{{ subItem.name }}</h4>
+            <p>Lat: {{ subItem.lat }}, Lng: {{ subItem.lng }}</p>
+          </div>
+        </li>
+      </ul>
+    </mat-list-item>
   </ul>
 </div>
 <div class="map-container">
-  <app-map></app-map>
+  <app-map [coordinates]="coordinates" [subCoordinates]="subCoordinates"></app-map>
 </div>
